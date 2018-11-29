@@ -25,8 +25,8 @@ public class SampleWebAppApplicationTests {
     @Test
     public void testReturnStatusAndLocation() throws Exception {
         String json = "{ \"username\": \"string\" }";
-        this.mockmvc.perform(post("/users").content(json)).andDo(print()).andExpect(status().isCreated())
-                .andExpect(header().string("Location", "/users/string"));
+        this.mockmvc.perform(post("/users").content(json).contentType(MediaType.APPLICATION_JSON)).andDo(print()).andExpect(status().isCreated())
+                .andExpect(header().string("Location", "/users/1"));
 
     }
 }
